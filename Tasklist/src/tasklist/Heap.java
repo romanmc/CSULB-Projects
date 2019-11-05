@@ -30,10 +30,10 @@ public class Heap <T> {
 		return 2 * i + 2;
 	}
 	
-	public void addItem( int i ) {
-		heap.add( 0 );
+/*	public void addItem( T t ) {
+		heap.add( null );
 		int index = heap.size() - 1;
-		while( index > 0 && heap.get( getPLoc(index) ) > i ) {
+		while( index > 0 && heap.get( getPLoc(index) ).compareTo( t ) ) {
 			heap.set( index,  heap.get( getPLoc(index) ) );
 			index = getPLoc(index);
 		}
@@ -107,5 +107,5 @@ public class Heap <T> {
 			
 			
 		}
-	}
+	}*/
 }

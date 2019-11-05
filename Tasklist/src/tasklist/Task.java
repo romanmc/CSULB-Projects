@@ -10,6 +10,31 @@ public class Task implements Comparable{
 		dueDate = d;
 	}
 	
-	public 
+	public int compareTo( Object o ) {
+		
+		Task t = (Task) o;
+		
+		if ( dueDate > t.dueDate ) {
+			return 1;
+		}
+		else if ( dueDate < t.dueDate ) {
+			return -1;
+		}
+		else {
+			
+			if ( taskName.compareTo( t.taskName ) > 0 ) {
+				return 1;
+			}
+			else if ( taskName.compareTo( t.taskName ) < 0 ) {
+				return -1;
+			}
+			
+			else {
+				return 0;
+			}		
+			
+		}	
+		
+	}
 	
 }
