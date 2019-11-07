@@ -25,8 +25,8 @@ public class TLWindow extends JFrame {
 	public class Panel extends JPanel implements ActionListener {
 		
 		private JButton completed, postpone, addTask, submit, quit;
-		private JTextField left, current, complete, month, day, year, hour, minute, task;
-		private JLabel lblLeft, lblCurrent, lblComplete, lblAT, lblPT, lblDate, lblTime, lblTask;
+		private JTextField month, day, year, hour, minute, task;
+		private JLabel left, current, complete, lblLeft, lblCurrent, lblComplete, lblAT, lblPT, lblDate, lblTime, lblTask;
 		private boolean panel1 = true;
 
 		public Panel() {
@@ -34,16 +34,15 @@ public class TLWindow extends JFrame {
 			GroupLayout layout = new GroupLayout(this);
 			this.setLayout(layout);
 			layout.setAutoCreateGaps(true);
-			layout.setAutoCreateContainerGaps(true);
 			
 			lblLeft = new JLabel( "Tasks Left:" );
-			left = new JTextField( "12" );
+			left = new JLabel( "12" );
 			
 			lblCurrent = new JLabel( "Current Task:" );
-			current = new JTextField( "Grocery Shopping" );
+			current = new JLabel( "Grocery Shopping" );
 			
 			lblComplete = new JLabel( "Complete By:" );
-			complete = new JTextField( "12/20/2019 16:00" );
+			complete = new JLabel( "12/20/2019 16:00" );
 			
 			completed = new JButton( "Completed!" );
 			postpone = new JButton( "Postpone" );
@@ -79,11 +78,21 @@ public class TLWindow extends JFrame {
 							.addComponent(completed)
 							.addComponent(postpone))
 					.addComponent(lblAT)
+							.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+									.addComponent(lblDate)
+									.addComponent(month)
+									.addComponent(day)
+								.addComponent(year))
+							.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+									.addComponent(lblTime)
+									.addComponent(hour)
+									.addComponent(minute))
+							.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+									.addComponent(lblTask)
+									.addComponent(task))
 					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-							.addComponent(lblDate)
-							.addComponent(month)
-							.addComponent(day)
-							.addComponent(year))
+							.addComponent(submit)
+							.addComponent(quit))
 					);
 			
 			layout.setHorizontalGroup(
@@ -95,14 +104,28 @@ public class TLWindow extends JFrame {
 							.addComponent(current)
 							.addComponent(lblComplete)
 							.addComponent(complete)
-							.addComponent(completed))
-						.addComponent(postpone)
-					.addGroup(layout.createParallelGroup()
+							.addComponent(completed)
 							.addComponent(lblAT)
-							.addComponent(lblDate))
-					.addComponent(month)
-					.addComponent(day)
-					.addComponent(year)
+							.addGroup(layout.createSequentialGroup()
+									.addComponent(lblDate)
+									.addComponent(month)
+									.addComponent(day)
+									.addComponent(year))
+							.addGroup(layout.createSequentialGroup()
+									.addComponent(lblTime)
+									.addComponent(hour)
+									.addComponent(minute))
+							.addGroup(layout.createSequentialGroup()
+									.addComponent(lblTask)
+									.addComponent(task))
+							.addComponent(submit)
+							)
+
+					.addGroup(layout.createParallelGroup()
+							.addComponent(postpone)
+
+							.addComponent(quit))
+
 					);
 		}
 		
