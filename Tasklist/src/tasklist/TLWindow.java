@@ -27,7 +27,6 @@ public class TLWindow extends JFrame {
 		private JButton completed, postpone, addTask, submit, quit;
 		private JTextField month, day, year, hour, minute, task;
 		private JLabel left, current, complete, lblLeft, lblCurrent, lblComplete, lblAT, lblPT, lblDate, lblTime, lblTask;
-		private boolean panel1 = true;
 
 		public Panel() {
 			
@@ -46,10 +45,12 @@ public class TLWindow extends JFrame {
 			
 			completed = new JButton( "Completed!" );
 			postpone = new JButton( "Postpone" );
+			postpone.setVisible(false);
 			addTask = new JButton( "Add Task" );
 			
 			lblAT = new JLabel( "Add Task:" );
 			lblPT = new JLabel( "Postpone Task:" );
+			lblPT.setVisible(false);
 			
 			lblDate = new JLabel ( "Date:" );
 			month = new JTextField( "MM" );
@@ -76,8 +77,10 @@ public class TLWindow extends JFrame {
 					.addComponent(complete)
 					.addGroup(layout.createParallelGroup()
 							.addComponent(completed)
-							.addComponent(postpone))
+							.addComponent(postpone)
+							.addComponent(addTask))
 					.addComponent(lblAT)
+					.addComponent(lblPT)
 							.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 									.addComponent(lblDate)
 									.addComponent(month)
@@ -106,6 +109,7 @@ public class TLWindow extends JFrame {
 							.addComponent(complete)
 							.addComponent(completed)
 							.addComponent(lblAT)
+							.addComponent(lblPT)
 							.addGroup(layout.createSequentialGroup()
 									.addComponent(lblDate)
 									.addComponent(month)
@@ -123,14 +127,34 @@ public class TLWindow extends JFrame {
 
 					.addGroup(layout.createParallelGroup()
 							.addComponent(postpone)
-
+							.addComponent(addTask)
 							.addComponent(quit))
 
 					);
 		}
 		
 		public void actionPerformed ( ActionEvent a ) {
+			if ( a.getSource() == addTask ) {
+				addTask.setVisible(false);
+				postpone.setVisible(true);
+				lblAT.setVisible(false);
+				lblPT.setVisible(true);
+			}
 			
+			if ( a.getSource() == postpone ) {
+				addTask.setVisible(true);
+				postpone.setVisible(false);
+				lblAT.setVisible(true);
+				lblPT.setVisible(false);
+			}
+			
+			if ( a.getSource() == submit ) {
+				
+			}
+			
+			if ( a.getSource() == quit ) {
+				dispose();
+			}
 		}
 		
 	}
