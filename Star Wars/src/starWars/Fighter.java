@@ -7,11 +7,13 @@ public class Fighter extends EnemyDecorator {
 	}
 	@Override
 	public int getMaxHP() {
+		System.out.println((chara.getMaxHP()) + ": maxhp fighter");
+
 		return chara.getMaxHP() + 1;
 	}
 	@Override
 	public int getAddDmg() {
-		return super.getAddDmg() + 1;
+		return chara.getAddDmg() + 1;
 	}
 	
 	@Override
@@ -24,6 +26,7 @@ public class Fighter extends EnemyDecorator {
 	}
 	@Override
 	public int getHP() {
+		System.out.println((chara.getHP()) + ": hp fighter");
 		return chara.getHP();
 	}
 	@Override
@@ -38,7 +41,10 @@ public class Fighter extends EnemyDecorator {
 	public void takeDamgage(int h) {
 		chara.takeDamgage(h);
 	}
-	
+	@Override
+	public void resetHealth() {
+		chara.resetHealth();
+	}
 	
 	public String toString() {
 		String entity = super.toString() + "(Fighter)";

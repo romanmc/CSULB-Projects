@@ -11,4 +11,5 @@ public interface Character {
 	void attack(Character e);
 	void takeDamgage(int h);
 	String toStringz();
+	void resetHealth();
 }

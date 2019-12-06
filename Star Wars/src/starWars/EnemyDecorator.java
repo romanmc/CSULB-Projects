@@ -10,11 +10,14 @@ public abstract class EnemyDecorator implements Character {
 	}
 	@Override
 	public int getMaxHP() {
-		return 0;
+		System.out.println((chara.getMaxHP()) + ":max hp dec");
+
+		return chara.getMaxHP();
 	}
+
 	@Override
 	public int getAddDmg() {
-		return 0;
+		return chara.getAddDmg();
 	}
 	
 	public String toStringz() {

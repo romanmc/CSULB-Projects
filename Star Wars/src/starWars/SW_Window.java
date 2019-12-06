@@ -318,13 +318,13 @@ public class SW_Window extends JFrame {
 			System.out.println("wd");
 			EnemyGenerator eg = EnemyGenerator.getInstance(newIG, hero);
 			newEnemy = eg.generateEnemy(hero.getLevel());
-			System.out.println(newEnemy.toStringz());
-			System.out.println(newEnemy.getName());
+			System.out.println(newEnemy.getHP() + "orig");
 
 			String description = "You've encountered a " + newEnemy.getName();
 			String enemyName = "Name " + newEnemy.getName();
 			String enemyLvl = "Lvl:" + newEnemy.getLevel();		
 			String enemyHP = String.valueOf(newEnemy.getHP());
+
 			
 			desc.setText(description);
 			eHP.setText(enemyHP);
@@ -387,7 +387,6 @@ public class SW_Window extends JFrame {
 		 */
 
 		public void fight() {
-			
 			hero.attack(newEnemy);
 			newEnemy.attack(hero);
 			eHP.setText(String.valueOf(newEnemy.getHP()));

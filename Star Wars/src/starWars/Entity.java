@@ -57,13 +57,18 @@ public abstract class Entity implements Character{
 	 * @return the current hit points of the entity
 	 */
 	public int getHP() {
+		System.out.println(hp + ": hp entity");
 		return hp;
+	}
+	public void resetHealth() {
+		hp = maxHp;
 	}
 	/**
 	 * finds the max hit points of the entity
 	 * @return the max hit points of the entity
 	 */
 	public int getMaxHP() {
+		System.out.println(maxHp + ":max entity");
 		return maxHp;
 	}
 	/**
@@ -129,7 +134,7 @@ public abstract class Entity implements Character{
 	}
 	
 	public String toStringz() {
-		String entity = name + "level: " + String.valueOf(level) + "hp: " + String.valueOf(maxHp);
+		String entity = name + "level: " + String.valueOf(level) + "maxhp: " + String.valueOf(maxHp) + "hp: " + String.valueOf(hp);
 		return entity;
 	}
 	

@@ -26,17 +26,17 @@ public class ForceEnemy extends Enemy{
 		Random randAttack = new Random();
 		int attackChoice = randAttack.nextInt(( 3 - 1 ) + 1 );
 		if ( attackChoice == 1 ) {
-			int dmg = enemyAttack.forceChoke();
+			int dmg = enemyAttack.forceChoke() + this.getAddDmg();
 			e.takeDamgage(dmg);
 			
 		}
 		else if ( attackChoice == 2 ) {
-			int dmg = enemyAttack.forcePush();
+			int dmg = enemyAttack.forcePush() + this.getAddDmg();
 			e.takeDamgage(dmg);
 			
 		}
 		else {
-			int dmg = enemyAttack.forceSlam();
+			int dmg = enemyAttack.forceSlam() + this.getAddDmg();
 			e.takeDamgage(dmg);
 			
 		}

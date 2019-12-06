@@ -29,7 +29,7 @@ public class Enemy extends Entity{
 	 */
 	public void attack(Character e) {
 		Random randDmg = new Random();
-		int dmg = randDmg.nextInt(( 5 - 1 ) + 1 );
+		int dmg = randDmg.nextInt(( 5 - 1 ) + 1 ) + this.getAddDmg();
 		e.takeDamgage(dmg);
 	}
 	/**
