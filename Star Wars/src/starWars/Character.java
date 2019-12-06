@@ -1,5 +1,9 @@
 package starWars;
-
+/**
+ * interface for all units in the game
+ * @author Roman
+ *
+ */
 public interface Character {
 
 	int getMaxHP();
@@ -12,4 +16,5 @@ public interface Character {
 	void takeDamgage(int h);
 	String toStringz();
 	void resetHealth();
+	void setLevel(int l);
 }

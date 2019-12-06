@@ -28,37 +28,9 @@ public class EnemyGenerator {
 	 * constructor for enemy generator
 	 * @param ig the item generator that will generate a random item for the
 	 * enemy to drop when it is defeated
-	 */
-	
+	 */	
 	private EnemyGenerator(ItemGenerator ig, Hero h) {
-	/*	try { 
-			File enemyFile = new File("/Users/Roman/CSULB-Projects/Star Wars/src/starWars/EnemyList.txt");
-			Scanner enemySC = new Scanner(enemyFile);
-			ig = ItemGenerator.getInstance();
-			
-			Map m1 = Map.getInstance();
-			Hero newHero = new Hero("Hero", m1);
-			
-			while ( enemySC.hasNextLine() ) {
-				String[] enemyTextList = enemySC.nextLine().split(",");
-				
-				if ( enemyTextList[2] == "n" ) {
-					Enemy newEnemy = new Enemy ( enemyTextList[0], newHero.getLevel(),
-							(Integer.parseInt(enemyTextList[1])*newHero.getLevel()), ig.generateItem());
-					enemyList.add(newEnemy);
-				}
-				else {
-					ForceEnemy newFEnemy = new ForceEnemy( enemyTextList[0], newHero.getLevel(),
-							(Integer.parseInt(enemyTextList[1])*newHero.getLevel()), ig.generateItem());
-					enemyList.add(newFEnemy);
-				}
-			}
-			enemySC.close();
-		} catch ( FileNotFoundException e ) {
-			System.out.println("file not found");
-		}*/
-		
-		Map m1 = Map.getInstance();
+
 		int l = h.getLevel();
 		
 		String[] names = new String[4];
@@ -70,6 +42,8 @@ public class EnemyGenerator {
 		for ( int n = 0; n < 4; n++ ) {
 			Character newChar = new Enemy("", 1, n+1, ig.generateItem());
 			Enemy newEnemy = new Enemy(names[n], l, n+1, ig.generateItem());
+			Character newFChar = new ForceEnemy("", 1, n+1, ig.generateItem());
+			ForceEnemy newFEnemy = new ForceEnemy(names[n], l, n+1, ig.generateItem());
 			for ( int i = 0; i < l; i++ ) {
 				Random rand = new Random();
 				int random = rand.nextInt(2);
@@ -83,16 +57,15 @@ public class EnemyGenerator {
 				}
 				else {
 					if ( i == 0 ) {
-						newChar = new ForceUser(newEnemy);
+						newChar = new ForceUser(newFEnemy);
 					}
 					else {
-						newChar = new ForceUser(newChar);
+						newChar = new ForceUser(newFChar);
 					}
 				}
 				
 			}
 			enemyList.add(newChar);
-			System.out.println(newChar.toStringz());
 		}
 		
 	}
@@ -112,11 +85,11 @@ public class EnemyGenerator {
 	 * @return the enemy that was generated
 	 */
 	public Character generateEnemy( int level ) {
-		// change to current level of hero
 		
 		Random rand = new Random();
 		Character randEnemy = enemyList.get( rand.nextInt( enemyList.size() ) );
 		randEnemy.resetHealth();
+		randEnemy.setLevel(level);
 		return randEnemy;
 	}
 	

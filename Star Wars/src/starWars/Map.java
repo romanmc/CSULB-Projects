@@ -55,7 +55,7 @@ public class Map {
 		try {
 			if (mapNum == 1) {
 
-				File map1File = new File("/Users/Roman/CSULB-Projects/Star Wars/src/starWars/Map1.txt");
+				File map1File = new File("/Users/Roman/eclipse-workspace/Star Wars/src/starWars/Map1.txt");
 
 				Scanner map1SC = new Scanner(map1File);
 				
@@ -84,7 +84,7 @@ public class Map {
 	
 
 			else if (mapNum == 2) {
-				File map2File = new File("/Users/Roman/CSULB-Projects/Star Wars/src/starWars/Map2.txt");
+				File map2File = new File("/Users/Roman/eclipse-workspace/Star Wars/src/starWars/Map2.txt");
 				
 				Scanner map2SC = new Scanner(map2File);
 				
@@ -108,7 +108,7 @@ public class Map {
 
 			else if (mapNum == 3) {
 
-				File map3File = new File("/Users/Roman/CSULB-Projects/Star Wars/src/starWars/Map3.txt");
+				File map3File = new File("/Users/Roman/eclipse-workspace/Star Wars/src/starWars/Map3.txt");
 
 				Scanner map3SC = new Scanner(map3File);
 

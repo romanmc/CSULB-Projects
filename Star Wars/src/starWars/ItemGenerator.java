@@ -10,7 +10,7 @@ import java.util.Random;
  * @author Roman
  *
  */
-public class ItemGenerator extends Item{
+public class ItemGenerator{
 	/**
 	 * list of items that could possibly be generated
 	 */
@@ -25,9 +25,8 @@ public class ItemGenerator extends Item{
 	 */
 	private ItemGenerator() {
 		
-		super();
 		try {
-			File itemFile = new File("/Users/Roman/CSULB-Projects/Star Wars/src/starWars/ItemList.txt");
+			File itemFile = new File("/Users/Roman/eclipse-workspace/Star Wars/src/starWars/ItemList.txt");
 			
 			Scanner itemSC = new Scanner(itemFile);
 			

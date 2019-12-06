@@ -9,7 +9,6 @@ public class ForceUser extends EnemyDecorator {
 	}
 	@Override
 	public int getMaxHP() {
-		System.out.println((chara.getMaxHP()) + ": maxhp force");
 		return chara.getMaxHP() + 2;
 	}
 	@Override
@@ -26,8 +25,6 @@ public class ForceUser extends EnemyDecorator {
 	}
 	@Override
 	public int getHP() {
-		System.out.println((chara.getHP()) + ": hp force");
-
 		return chara.getHP();
 	}
 	@Override
@@ -45,6 +42,10 @@ public class ForceUser extends EnemyDecorator {
 	@Override
 	public void resetHealth() {
 		chara.resetHealth();
+	}
+	@Override
+	public void setLevel(int l) {
+		chara.setLevel(l);
 	}
 	
 	public String toStringz() {

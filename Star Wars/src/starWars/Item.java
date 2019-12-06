@@ -12,8 +12,8 @@ public class Item {
 	/**
 	 * constructor for item
 	 */
-	public Item() {
-		
+	public Item(Item i) {
+		name = i.getName();
 	}
 	/**
 	 * constructor for item with name
@@ -31,7 +31,7 @@ public class Item {
 	}
 
 	public Item clone() {		
-		return new Item(name);
+		return new Item(this);
 	}
 	
 }

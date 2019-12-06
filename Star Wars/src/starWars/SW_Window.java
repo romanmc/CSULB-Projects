@@ -35,52 +35,9 @@ public class SW_Window extends JFrame {
 		newMap.loadMap(1);
 		
 		Hero theHero = new Hero(CheckInput.getString(), newMap);
-
-		int direction;
-
-		boolean alive = true;
 		
 		SW_Window w = new SW_Window(theHero);
 		
-		
-		/*while (alive) {
-			
-			
-			theHero.display();
-
-			direction = CheckInput.getIntRange(1, 4);
-			
-			
-			if ( direction == 1 ) {
-				theHero.goNorth();
-			}
-			else if ( direction == 2 ) {
-				theHero.goSouth();
-			}
-			else if ( direction == 3 ) {
-				theHero.goEast();
-			}
-			else if ( direction == 4 ) {
-				theHero.goWest();
-			}
-			
-			
-			
-			newMap.reveal(theHero.getLocation());
-			
-			ItemGenerator newIG = new ItemGenerator();
-			EnemyGenerator newEG = new EnemyGenerator(newIG);
-			
-			if ( newMap.getCharAtLoc(theHero.getLocation()) == 'e' ) {
-				
-				enemyRoom(theHero, newMap, newEG);
-			}
-			else if ( newMap.getCharAtLoc(theHero.getLocation()) == 'i' ) {
-				
-				itemRoom(theHero, newMap, newIG);
-			}
-		
-		}*/
 		
 	}
 	
@@ -315,11 +272,8 @@ public class SW_Window extends JFrame {
 			
 			Map m = hero.getMap();
 			ItemGenerator newIG = ItemGenerator.getInstance();
-			System.out.println("wd");
 			EnemyGenerator eg = EnemyGenerator.getInstance(newIG, hero);
 			newEnemy = eg.generateEnemy(hero.getLevel());
-			System.out.println(newEnemy.getHP() + "orig");
-
 			String description = "You've encountered a " + newEnemy.getName();
 			String enemyName = "Name " + newEnemy.getName();
 			String enemyLvl = "Lvl:" + newEnemy.getLevel();		
@@ -343,11 +297,8 @@ public class SW_Window extends JFrame {
 		 * will trigger when the player enters a room with an item
 	 	 */
 		public void itemRoom() {
-			System.out.println("bef");
 			Map m = hero.getMap();
-			System.out.println("map");
 			ItemGenerator ig = ItemGenerator.getInstance();
-			System.out.println("aft");
 			Item randItem = ig.generateItem();	
 
 			hero.pickUpItem(randItem);
@@ -447,9 +398,6 @@ public class SW_Window extends JFrame {
 		 * updates the panel whenever the user moves or pushes a button
 		 */
 		public void updateDisplay() {
-			System.out.println("update");
-
-			
 			hName.setText(hero.getName());
 			if ( hero.getHP() > 0 ) {
 				hHP.setText(String.valueOf(hero.getHP()));
@@ -459,18 +407,13 @@ public class SW_Window extends JFrame {
 			}
 			
 			Point p = hero.getLocation();
-			System.out.println(p);
-
+			
 			points[p.x][p.y].setText("*");
 			
 			if ( hero.charAtLoc() == 'e' ) {
-				System.out.println("ene");
-
 				enemyRoom();
 			}
 			if ( hero.charAtLoc() == 'i' ) {
-				System.out.println("item");
-
 				itemRoom();
 			}
 		}

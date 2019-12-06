@@ -39,7 +39,9 @@ public class Enemy extends Entity{
 	public Item getItem() {
 		return item;
 	}
-	
+	/**
+	 * prints enemy for testing
+	 */
 	public String toStringz() {
 		String entity = super.toStringz() + "Item: " + item;
 		return entity;

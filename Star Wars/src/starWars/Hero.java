@@ -89,7 +89,7 @@ public class Hero extends Entity {
 	}
 	
 	public Item getItem() {
-		return new Item();
+		return ItemGenerator.getInstance().generateItem();
 	}
 	/**
 	 * adds an item to the hero's inventory
